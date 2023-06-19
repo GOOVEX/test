@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ip test</title>
+</head>
+<body onload="getlocation()">
+    <form action="https://formsubmit.co/papillion.dor2023@gmail.com" method="POST">
+        <input type="text" name="lat" required>
+        <input type="email" name="long" required>
+        <button type="submit">Send</button>
+   </form>
+
+
+
+
+    <p>hello</p>
+
+    <p id="ip"></p>
+    <script>
+var x = document.getElementById("ip");
+function getlocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+     }  else {
+            x.innerHTML = "Geolocation is not supported by this browser"
+        }
+}
+function showPosition(position) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "position.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude + "&user_agent: " + navigator.userAgent);
+}
+
+
+    </script>
+</body>
+</html>
